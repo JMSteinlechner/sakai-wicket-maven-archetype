@@ -6,7 +6,8 @@ package ${package}.logic;
 import lombok.Getter;
 import lombok.Setter;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.sakaiproject.authz.api.SecurityService;
 import org.sakaiproject.component.api.ServerConfigurationService;
 import org.sakaiproject.event.api.EventTrackingService;
@@ -24,7 +25,7 @@ import org.sakaiproject.user.api.UserNotDefinedException;
  */
 public class SakaiProxyImpl implements SakaiProxy {
 
-	private static final Logger log = Logger.getLogger(SakaiProxyImpl.class);
+	private static final Logger log = LogManager.getLogger(SakaiProxyImpl.class);
     
 	/**
  	* {@inheritDoc}

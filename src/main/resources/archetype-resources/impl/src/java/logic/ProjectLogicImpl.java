@@ -11,7 +11,8 @@ import lombok.Setter;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.Element;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import ${package}.dao.ProjectDao;
 import ${package}.logic.SakaiProxy;
@@ -25,7 +26,7 @@ import ${package}.model.Thing;
  */
 public class ProjectLogicImpl implements ProjectLogic {
 
-	private static final Logger log = Logger.getLogger(ProjectLogicImpl.class);
+	private static final Logger log = LogManager.getLogger(ProjectLogicImpl.class);
 
 	
 	/**

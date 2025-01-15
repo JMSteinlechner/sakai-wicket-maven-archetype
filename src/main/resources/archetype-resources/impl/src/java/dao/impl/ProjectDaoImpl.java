@@ -10,7 +10,8 @@ import java.util.NoSuchElementException;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.configuration.reloading.InvariantReloadingStrategy;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import org.sakaiproject.component.cover.ServerConfigurationService;
 
@@ -30,7 +31,7 @@ import ${package}.model.Thing;
  */
 public class ProjectDaoImpl extends JdbcDaoSupport implements ProjectDao {
 
-	private static final Logger log = Logger.getLogger(ProjectDaoImpl.class);
+	private static final Logger log = LogManager.getLogger(ProjectDaoImpl.class);
 	
 	private PropertiesConfiguration statements;
 	
