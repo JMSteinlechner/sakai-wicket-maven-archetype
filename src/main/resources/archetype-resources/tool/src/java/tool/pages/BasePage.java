@@ -161,7 +161,7 @@ public class BasePage extends WebPage implements IHeaderContributor {
 		
 		//Tool additions (at end so we can override if required)
 		//response.render(CssHeaderItem.forUrl("css/exampleApp.css"));
-		response.render(StringHeaderItem.forString("<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />"));
+		response.render(StringHeaderItem.forString("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />"));
 		//response.renderJavascriptReference("js/my_tool_javascript.js");
 	}
 	
