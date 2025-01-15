@@ -10,9 +10,7 @@ import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.Component;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.feedback.FeedbackMessage;
-import org.apache.wicket.markup.head.IHeaderResponse;
-import org.apache.wicket.markup.head.OnLoadHeaderItem;
-import org.apache.wicket.markup.head.StringHeaderItem;
+import org.apache.wicket.markup.head.*;
 import org.apache.wicket.markup.html.IHeaderContributor;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
@@ -67,7 +65,7 @@ public class BasePage extends WebPage implements IHeaderContributor {
 			}
 		};
 		firstLink.add(new Label("firstLinkLabel",new ResourceModel("link.first")).setRenderBodyOnly(true));
-		firstLink.add(new AttributeModifier("title", true, new ResourceModel("link.first.tooltip")));
+		firstLink.add(new AttributeModifier("title", new ResourceModel("link.first.tooltip")));
 		add(firstLink);
 		
 		
@@ -80,7 +78,7 @@ public class BasePage extends WebPage implements IHeaderContributor {
 			}
 		};
 		secondLink.add(new Label("secondLinkLabel",new ResourceModel("link.second")).setRenderBodyOnly(true));
-		secondLink.add(new AttributeModifier("title", true, new ResourceModel("link.second.tooltip")));
+		secondLink.add(new AttributeModifier("title", new ResourceModel("link.second.tooltip")));
 		add(secondLink);
 		
 		
@@ -92,8 +90,8 @@ public class BasePage extends WebPage implements IHeaderContributor {
 				setResponsePage(new ThirdPage());
 			}
 		};
-		thirdLink.add(new Label("thirdLinkLabel",new StringResourceModel("link.third", null, new String[] {"3"})).setRenderBodyOnly(true));
-		thirdLink.add(new AttributeModifier("title", true, new ResourceModel("link.third.tooltip")));
+		thirdLink.add(new Label("thirdLinkLabel", new StringResourceModel("link.third", null, Model.of(new String[] {"3"}))).setRenderBodyOnly(true));
+		thirdLink.add(new AttributeModifier("title", new ResourceModel("link.third.tooltip")));
 		add(thirdLink);
 		
 		
@@ -162,8 +160,8 @@ public class BasePage extends WebPage implements IHeaderContributor {
 		
 		
 		//Tool additions (at end so we can override if required)
-		response.render(StringHeaderItem.forString("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />"));
-		//response.renderCSSReference("css/my_tool_styles.css");
+		//response.render(CssHeaderItem.forUrl("css/exampleApp.css"));
+		response.render(StringHeaderItem.forString("<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />"));
 		//response.renderJavascriptReference("js/my_tool_javascript.js");
 	}
 	
